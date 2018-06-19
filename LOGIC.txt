@@ -1,0 +1,14 @@
+The application can be used to get details of a nearby driver based on the customer's location.
+Steps involved :
+    - Using client's geolocation (latitude,longitude), find the city. 
+    - Redis cache has list of drivers' ID in that city.
+    - Using ID from cache, fetch driver details and return as response.
+NOTE : path param location is of the format latitude:longitude
+
+Sample request to test the application :
+    http://localhost:8000/getCabs/13.0801721:80.2838331
+
+To test this, a module called node-geocoder is used. It requires details of a provider (like google) to fetch information related to the city. For local testing, a provider called pick point has been used. Pickpoint provides user with an API key after registration at https://pickpoint.io/.
+This api key needs to be provided in the config file (apiKey).
+
+
